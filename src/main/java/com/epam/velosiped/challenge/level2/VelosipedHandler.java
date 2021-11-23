@@ -2,10 +2,10 @@ package com.epam.velosiped.challenge.level2;
 
 import com.epam.velosiped.challenge.common.VelosipedResponse;
 import com.epam.velosiped.challenge.level2.controller.VelosipedCalculationController;
-import com.epam.velosiped.challenge.level2.handler.Handler;
-import com.epam.velosiped.challenge.level2.handler.HandlerMapper;
-import com.epam.velosiped.challenge.level5.bean.annotation.Inject;
-import com.epam.velosiped.challenge.level5.post.processor.PostConstruct;
+import com.epam.velosiped.challenge.di.web.handler.Handler;
+import com.epam.velosiped.challenge.di.web.handler.HandlerMapper;
+import com.epam.velosiped.challenge.di.Inject;
+import com.epam.velosiped.challenge.di.PostConstruct;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;

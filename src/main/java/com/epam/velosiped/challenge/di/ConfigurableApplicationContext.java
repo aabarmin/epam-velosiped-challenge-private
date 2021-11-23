@@ -1,8 +1,8 @@
-package com.epam.velosiped.challenge.level5;
+package com.epam.velosiped.challenge.di;
 
-import com.epam.velosiped.challenge.level5.bean.definition.BeanDefinitionRegistry;
-import com.epam.velosiped.challenge.level5.bean.factory.BeanFactory;
-import com.epam.velosiped.challenge.level5.post.processor.PostProcessBeanPostProcessor;
+import com.epam.velosiped.challenge.di.bean.definition.BeanDefinitionRegistry;
+import com.epam.velosiped.challenge.di.bean.factory.BeanFactory;
+import com.epam.velosiped.challenge.di.processor.PostProcessBeanPostProcessor;
 import java.util.Arrays;
 import java.util.Set;
 

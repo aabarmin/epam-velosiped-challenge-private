@@ -1,4 +1,4 @@
-package com.epam.velosiped.challenge.level5.bean.definition;
+package com.epam.velosiped.challenge.di.bean.definition;
 
 import java.lang.reflect.Constructor;
 import java.util.Collection;

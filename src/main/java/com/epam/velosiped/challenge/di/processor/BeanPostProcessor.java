@@ -1,4 +1,4 @@
-package com.epam.velosiped.challenge.level5.post.processor;
+package com.epam.velosiped.challenge.di.processor;
 
 /**
  * @author Aleksandr Barmin

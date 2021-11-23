@@ -1,4 +1,4 @@
-package com.epam.velosiped.challenge.level2.handler;
+package com.epam.velosiped.challenge.di.web.handler;
 
 import com.sun.net.httpserver.HttpExchange;
 

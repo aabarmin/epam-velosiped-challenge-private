@@ -1,7 +1,7 @@
-package com.epam.velosiped.challenge.level2.handler;
+package com.epam.velosiped.challenge.di.web.handler;
 
-import com.epam.velosiped.challenge.level2.controller.RequestMapping;
-import com.epam.velosiped.challenge.level5.bean.annotation.Inject;
+import com.epam.velosiped.challenge.di.web.RequestMapping;
+import com.epam.velosiped.challenge.di.Inject;
 import com.sun.net.httpserver.HttpExchange;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.Optional;
  */
 public class HandlerMapper {
   @Inject
-  private ParameterExtractor parameterExtractor;
+  private ParameterProvider parameterProvider;
 
   private final Collection<Handler> handlers = new ArrayList<>();
 
@@ -23,7 +23,7 @@ public class HandlerMapper {
         handlers.add(new MethodHandler(
             handlerCandidate,
             method,
-            parameterExtractor
+            parameterProvider
         ));
       }
     }

@@ -1,4 +1,4 @@
-package com.epam.velosiped.challenge.level5;
+package com.epam.velosiped.challenge.di;
 
 /**
  * @author Aleksandr Barmin

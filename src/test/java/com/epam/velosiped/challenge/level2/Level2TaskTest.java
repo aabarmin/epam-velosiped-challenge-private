@@ -1,7 +1,5 @@
 package com.epam.velosiped.challenge.level2;
 
-import com.epam.velosiped.challenge.level1.Level1Task;
-import com.epam.velosiped.challenge.level1.Level1TaskImpl;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -9,10 +7,9 @@ import java.net.URLConnection;
 import java.util.concurrent.ThreadLocalRandom;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Aleksandr Barmin

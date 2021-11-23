@@ -1,7 +1,6 @@
-package com.epam.velosiped.challenge.level2.handler;
+package com.epam.velosiped.challenge.di.web.handler;
 
-import com.epam.velosiped.challenge.level2.controller.QueryParameter;
-import com.epam.velosiped.challenge.level2.controller.RequestMapping;
+import com.epam.velosiped.challenge.di.web.RequestMapping;
 import com.sun.net.httpserver.HttpExchange;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -12,19 +11,19 @@ import java.lang.reflect.Method;
 public class MethodHandler implements Handler {
   private final Object controller;
   private final Method method;
-  private final ParameterExtractor extractor;
+  private final ParameterProvider parameterProvider;
 
   private final String requestMethod;
   private final String endpoint;
 
-  public MethodHandler(Object controller, Method method, ParameterExtractor extractor) {
+  public MethodHandler(Object controller, Method method, ParameterProvider parameterProvider) {
     this.controller = controller;
     this.method = method;
-    this.extractor = extractor;
+    this.parameterProvider = parameterProvider;
 
     final RequestMapping mapping = method.getAnnotation(RequestMapping.class);
 
-    this.requestMethod = mapping.method();
+    this.requestMethod = mapping.method().name();
     this.endpoint = mapping.path();
   }
 
@@ -36,16 +35,8 @@ public class MethodHandler implements Handler {
 
   @Override
   public Object handle(HttpExchange exchange) {
-    // check if necessary to extract some parameters from request
-    Object[] parameters = new Object[method.getParameterCount()];
-    for (int i = 0; i < method.getParameterCount(); i++) {
-      final Annotation[] parameterAnnotations = method.getParameterAnnotations()[i];
-      // other annotations may be supported but not now
-      final QueryParameter annotation = getAnnotation(parameterAnnotations, QueryParameter.class);
-      parameters[i] = extractor.queryParameter(exchange, annotation.value());
-    }
-
     try {
+      final Object[] parameters = parameterProvider.extract(method, exchange);
       return method.invoke(controller, parameters);
     } catch (Exception e) {
       throw new RuntimeException(e);
@@ -59,14 +50,5 @@ public class MethodHandler implements Handler {
       }
     }
     throw new IllegalArgumentException();
-  }
-
-  private boolean hasAnnotation(Annotation[] annotations, Class<?> annotationClass) {
-    for (Annotation annotation : annotations) {
-      if (annotation.annotationType().equals(annotationClass)) {
-        return true;
-      }
-    }
-    return false;
   }
 }

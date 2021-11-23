@@ -1,11 +1,12 @@
 package com.epam.velosiped.challenge.level2;
 
+import com.epam.velosiped.challenge.di.web.handler.extractor.QueryParameterExtractor;
 import com.epam.velosiped.challenge.level2.controller.VelosipedCalculationController;
-import com.epam.velosiped.challenge.level2.handler.HandlerMapper;
-import com.epam.velosiped.challenge.level2.handler.ParameterExtractor;
+import com.epam.velosiped.challenge.di.web.handler.HandlerMapper;
+import com.epam.velosiped.challenge.di.web.handler.ParameterProvider;
 import com.epam.velosiped.challenge.level2.service.VelosipedCalculationService;
-import com.epam.velosiped.challenge.level5.ApplicationContext;
-import com.epam.velosiped.challenge.level5.ConfigurableApplicationContext;
+import com.epam.velosiped.challenge.di.ApplicationContext;
+import com.epam.velosiped.challenge.di.ConfigurableApplicationContext;
 import com.sun.net.httpserver.HttpServer;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
@@ -17,9 +18,10 @@ public class Level2TaskImpl implements Level2Task {
   private final ApplicationContext applicationContext = new ConfigurableApplicationContext(
       VelosipedHandler.class,
       HandlerMapper.class,
-      ParameterExtractor.class,
+      ParameterProvider.class,
       VelosipedCalculationController.class,
-      VelosipedCalculationService.class
+      VelosipedCalculationService.class,
+      QueryParameterExtractor.class
   );
 
   private HttpServer httpServer;

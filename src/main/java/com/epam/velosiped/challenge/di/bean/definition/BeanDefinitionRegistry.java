@@ -1,6 +1,5 @@
-package com.epam.velosiped.challenge.level5.bean.definition;
+package com.epam.velosiped.challenge.di.bean.definition;
 
-import com.epam.velosiped.challenge.level5.bean.definition.BeanDefinition;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;

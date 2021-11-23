@@ -1,4 +1,4 @@
-package com.epam.velosiped.challenge.level2.controller;
+package com.epam.velosiped.challenge.di.web;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -7,5 +7,6 @@ import java.lang.annotation.RetentionPolicy;
  * @author Aleksandr Barmin
  */
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Controller {
+public @interface QueryParameter {
+  String value();
 }

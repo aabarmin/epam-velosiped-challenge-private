@@ -1,5 +1,6 @@
-package com.epam.velosiped.challenge.level5.post.processor;
+package com.epam.velosiped.challenge.di.processor;
 
+import com.epam.velosiped.challenge.di.PostConstruct;
 import java.lang.reflect.Method;
 
 /**

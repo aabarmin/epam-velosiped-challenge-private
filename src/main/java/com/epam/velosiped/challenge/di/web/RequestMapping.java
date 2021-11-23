@@ -1,4 +1,4 @@
-package com.epam.velosiped.challenge.level5.post.processor;
+package com.epam.velosiped.challenge.di.web;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -7,5 +7,8 @@ import java.lang.annotation.RetentionPolicy;
  * @author Aleksandr Barmin
  */
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PostConstruct {
+public @interface RequestMapping {
+  String path();
+
+  HttpMethod method();
 }

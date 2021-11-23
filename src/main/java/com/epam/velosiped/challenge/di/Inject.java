@@ -1,4 +1,4 @@
-package com.epam.velosiped.challenge.level5.bean.annotation;
+package com.epam.velosiped.challenge.di;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
