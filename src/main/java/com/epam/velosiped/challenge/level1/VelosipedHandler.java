@@ -1,5 +1,6 @@
 package com.epam.velosiped.challenge.level1;
 
+import com.epam.velosiped.challenge.common.VelosipedResponse;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;

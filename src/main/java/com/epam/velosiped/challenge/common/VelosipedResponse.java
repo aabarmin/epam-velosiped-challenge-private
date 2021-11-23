@@ -1,6 +1,5 @@
-package com.epam.velosiped.challenge.level1;
+package com.epam.velosiped.challenge.common;
 
-import com.epam.velosiped.challenge.common.Lists;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
