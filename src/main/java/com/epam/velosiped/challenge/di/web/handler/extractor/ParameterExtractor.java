@@ -9,5 +9,5 @@ import java.lang.annotation.Annotation;
 public interface ParameterExtractor {
   boolean supports(Annotation[] annotations);
 
-  Object extract(Annotation[] annotations, HttpExchange exchange);
+  Object extract(Annotation[] annotations, Class<?> targetType, HttpExchange exchange);
 }

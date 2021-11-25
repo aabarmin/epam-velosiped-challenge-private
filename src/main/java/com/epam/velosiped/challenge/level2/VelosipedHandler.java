@@ -1,6 +1,7 @@
 package com.epam.velosiped.challenge.level2;
 
 import com.epam.velosiped.challenge.common.VelosipedResponse;
+import com.epam.velosiped.challenge.di.web.response.ResponseConverter;
 import com.epam.velosiped.challenge.level2.controller.VelosipedCalculationController;
 import com.epam.velosiped.challenge.di.web.handler.Handler;
 import com.epam.velosiped.challenge.di.web.handler.HandlerMapper;
@@ -23,6 +24,9 @@ public class VelosipedHandler implements HttpHandler {
   @Inject
   private VelosipedCalculationController controller;
 
+  @Inject
+  private ResponseConverter responseConverter;
+
   @PostConstruct
   public void init() {
     handlerMapper.register(controller);
@@ -33,7 +37,7 @@ public class VelosipedHandler implements HttpHandler {
     final Handler handler = handlerMapper.findHandler(exchange).orElseThrow();
     try {
       final Object response = handler.handle(exchange);
-      writeResponse(exchange, new VelosipedResponse(200, String.valueOf(response)));
+      writeResponse(exchange, new VelosipedResponse(200, responseConverter.convert(response)));
     } catch (Exception e) {
       writeResponse(exchange, new VelosipedResponse(500, "Unexpected error"));
     }

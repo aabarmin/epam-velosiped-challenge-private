@@ -23,7 +23,7 @@ public class QueryParameterExtractor implements ParameterExtractor {
   }
 
   @Override
-  public Object extract(Annotation[] annotations, HttpExchange exchange) {
+  public Object extract(Annotation[] annotations, Class<?> targetClass, HttpExchange exchange) {
     final QueryParameter parameter = getAnnotation(annotations);
     final String name = parameter.value();
 
